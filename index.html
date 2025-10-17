@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repostería Dulce Sueño - Home</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Swiper.js (Carrusel) -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Carga de CSS personalizado y fuentes de Google -->
+    <link rel="stylesheet" href="style header.css">
+    <link rel="stylesheet" href="style.productos.css">
+</head>
+<body class="antialiased">
+
+    <!-- HEADER/NAVBAR - Estética de Repostería -->
+    <header class="sticky top-0 z-50 bg-white/80 shadow-lg backdrop-blur-lg animate-slide-down">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Logo/Nombre de la Marca -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center text-3xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#f68989] to-[#e95e7c]">
+                        <!-- Icono SVG de cupcake estilizado -->
+                        <svg class="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C9.24 2 7 4.24 7 7C7 8.3 7.55 9.45 8.42 10.24C7.5 10.8 6.75 11.58 6.2 12.5C5.6 13.5 5.25 14.62 5.25 15.75C5.25 16.16 5.59 16.5 6 16.5H18C18.41 16.5 18.75 16.16 18.75 15.75C18.75 14.62 18.4 13.5 17.8 12.5C17.25 11.58 16.5 10.8 15.58 10.24C16.45 9.45 17 8.3 17 7C17 4.24 14.76 2 12 2ZM12 4C13.66 4 15 5.34 15 7C15 7.9 14.5 8.7 13.75 9.2C13.18 9.5 12.59 9.65 12 9.65C11.41 9.65 10.82 9.5 10.25 9.2C9.5 8.7 9 7.9 9 7C9 5.34 10.34 4 12 4Z"/>
+                            <path d="M18 18H6C5.59 18 5.25 18.34 5.25 18.75V20.25C5.25 21.22 6.03 22 7 22H17C17.97 22 18.75 21.22 18.75 20.25V18.75C18.75 18.34 18.41 18 18 18Z"/>
+                        </svg>
+                        <span class="logo-font">Dulce Sueño</span>
+                    </a>
+                </div>
+
+                <!-- Menú de Navegación (Escritorio) -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link animate-fade-in-up" style="animation-delay: 0.3s;">Inicio</a>
+                    <a href="#productos" class="nav-link animate-fade-in-up" style="animation-delay: 0.4s;">Productos</a>
+                    <a href="#personalizado" class="nav-link animate-fade-in-up" style="animation-delay: 0.5s;">Pedidos</a>
+                    <a href="#contacto" class="nav-link animate-fade-in-up" style="animation-delay: 0.6s;">Contacto</a>
+                </nav>
+
+                <!-- Botón Principal (Escritorio) -->
+                <div class="hidden md:block animate-fade-in-up" style="animation-delay: 0.7s;">
+                    <a href="#tienda" class="btn-gradient-animated px-5 py-2.5 rounded-full text-white font-semibold transform hover:scale-105 shadow-lg bg-gradient-to-r from-[#f68989] to-[#e95e7c] hover:shadow-xl">
+                        Pedir Ahora
+                    </a>
+                </div>
+
+                <!-- Botón de Menú Móvil -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[#e95e7c] hover:bg-pink-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#e95e7c]">
+                        <!-- Icono SVG de Hamburguesa (Abrir) -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icono SVG de Cierre (Cerrar, oculto inicialmente) -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div class="md:hidden overflow-hidden max-h-0 transition-all duration-700 ease-in-out" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-[#e95e7c]">Inicio</a>
+                <a href="#productos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-[#e95e7c]">Productos</a>
+                <a href="#personalizado" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-[#e95e7c]">Pedidos</a>
+                <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-[#e95e7c]">Contacto</a>
+                <a href="#tienda" class="btn-gradient-animated block w-3/4 mx-auto mt-4 px-5 py-2.5 rounded-full text-white font-semibold shadow-lg bg-gradient-to-r from-[#f68989] to-[#e95e7c]">Pedir Ahora</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER - Pantalla Completa -->
+    <section 
+        class="hero-banner relative h-screen flex items-center justify-center bg-cover bg-center" 
+        >
+        
+        <!-- Capa de superposición oscura -->
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <!-- Contenido del Banner -->
+        <div class="relative text-center text-white px-4">
+            <h1 class="text-5xl md:text-7xl font-bold animate-fade-in-up logo-font" style="animation-delay: 0.5s;">Dulce Sueño</h1>
+            <p class="mt-4 text-xl md:text-2xl animate-fade-in-up" style="animation-delay: 0.8s;">Donde cada postre cuenta una historia.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section id="productos" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Nuestras Creaciones</h2>
+                <p class="mt-4 text-lg text-gray-600">Hechas con amor, para endulzar tus momentos.</p>
+            </div>
+
+            <!-- Carrusel de Productos -->
+            <div class="swiper-container mt-12">
+                <div class="swiper-wrapper">
+                    <!-- Producto 1 -->
+                    <div class="swiper-slide">
+                        <div class="product-card rounded-lg overflow-hidden shadow-lg" data-title="Pastel de Chocolate Intenso" data-price="$350.00 MXN" data-description="Un sueño para los amantes del chocolate, con capas de bizcocho húmedo y un rico ganache de chocolate oscuro." data-img="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                            <img class="w-full h-56 object-cover" src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Pastel de Chocolate">
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-2 text-gray-800">Pastel de Chocolate</h3>
+                                <p class="text-gray-700 text-base">Ganache y bizcocho húmedo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="swiper-slide">
+                        <div class="product-card rounded-lg overflow-hidden shadow-lg" data-title="Cheesecake de Frutos Rojos" data-price="$320.00 MXN" data-description="Cremoso cheesecake sobre una base de galleta, coronado con una generosa capa de compota de frutos rojos frescos." data-img="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                            <img class="w-full h-56 object-cover" src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cheesecake">
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-2 text-gray-800">Cheesecake de Frutos Rojos</h3>
+                                <p class="text-gray-700 text-base">Cremoso y con fruta fresca.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="swiper-slide">
+                        <div class="product-card rounded-lg overflow-hidden shadow-lg" data-title="Cupcakes de Vainilla" data-price="$45.00 MXN c/u" data-description="Esponjosos cupcakes de vainilla con un frosting de buttercream suave y decoraciones personalizables." data-img="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                            <img class="w-full h-56 object-cover" src="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cupcakes">
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-2 text-gray-800">Cupcakes de Vainilla</h3>
+                                <p class="text-gray-700 text-base">Con frosting de buttercream.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Añade más productos aquí -->
+                       <div class="swiper-slide">
+                        <div class="product-card rounded-lg overflow-hidden shadow-lg" data-title="Cupcakes de Vainilla" data-price="$45.00 MXN c/u" data-description="Esponjosos cupcakes de vainilla con un frosting de buttercream suave y decoraciones personalizables." data-img="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                            <img class="w-full h-56 object-cover" src="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cupcakes">
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-2 text-gray-800">Cupcakes de Vainilla</h3>
+                                <p class="text-gray-700 text-base">Con frosting de buttercream.</p>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="swiper-slide">
+                        <div class="product-card rounded-lg overflow-hidden shadow-lg" data-title="Cupcakes de Vainilla" data-price="$45.00 MXN c/u" data-description="Esponjosos cupcakes de vainilla con un frosting de buttercream suave y decoraciones personalizables." data-img="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+                            <img class="w-full h-56 object-cover" src="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cupcakes">
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl mb-2 text-gray-800">Cupcakes de Vainilla</h3>
+                                <p class="text-gray-700 text-base">Con frosting de buttercream.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE PRODUCTO (Oculto por defecto) -->
+    <div id="product-modal" class="product-modal">
+        <div class="product-modal-content">
+            <button id="modal-close-btn" class="modal-close-btn">
+                <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img id="modal-img" class="w-full h-64 object-cover rounded-t-lg mb-4" src="" alt="Imagen del producto">
+            <h2 id="modal-title" class="text-3xl font-bold text-gray-900 mb-2"></h2>
+            <p id="modal-description" class="text-gray-600 mb-4"></p>
+            <p id="modal-price" class="text-2xl font-bold color-acento"></p>
+        </div>
+    </div>
+
+    <!-- Carga de Swiper.js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- JavaScript para el Menú Móvil -->
+    <script>
+        const button = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const openIcon = button.querySelector('.block');
+        const closeIcon = button.querySelector('.hidden');
+
+        button.addEventListener('click', () => {
+            // Alternar la visibilidad del menú con animación de altura
+            if (menu.style.maxHeight) {
+                menu.style.maxHeight = null;
+            } else {
+                menu.style.maxHeight = menu.scrollHeight + "px";
+            }
+
+            // Alternar los íconos de hamburguesa y cierre
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- JavaScript para Carrusel y Modal -->
+    <script>
+        // Inicialización del Carrusel Swiper
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // para pantallas de 768px o más
+                768: {
+                    slidesPerView: 2,
+                },
+                // para pantallas de 1024px o más
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
+
+        // Lógica del Modal
+        const productCards = document.querySelectorAll('.product-card');
+        const modal = document.getElementById('product-modal');
+        const closeModalBtn = document.getElementById('modal-close-btn');
+
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Obtener datos de la tarjeta
+                const title = card.dataset.title;
+                const price = card.dataset.price;
+                const description = card.dataset.description;
+                const img = card.dataset.img;
+
+                // Rellenar el modal
+                document.getElementById('modal-title').innerText = title;
+                document.getElementById('modal-price').innerText = price;
+                document.getElementById('modal-description').innerText = description;
+                document.getElementById('modal-img').src = img;
+
+                // Mostrar el modal
+                modal.classList.add('is-visible');
+            });
+        });
+
+        // Cerrar el modal
+        const closeModal = () => modal.classList.remove('is-visible');
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

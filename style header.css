@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f3f0; /* Fondo muy claro, color crema */
+}
+
+/* --- CLASES PARA EL HEADER --- */
+
+/* Estilo para el nombre del logo */
+.logo-font {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Color principal de acento */
+.color-acento {
+    color: #f68989;
+}
+
+/* Enlaces de navegación con animación de subrayado */
+.nav-link {
+    @apply relative text-gray-600 transition duration-300 font-medium;
+}
+.nav-link:hover {
+    color: #e95e7c;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e95e7c;
+    transition: width 0.3s ease-in-out;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- ANIMACIONES --- */
+
+/* Keyframes para la animación de deslizar hacia abajo */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes para la animación de aparecer y deslizar hacia arriba */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clases de utilidad para aplicar las animaciones */
+.animate-slide-down {
+    animation: slideDown 0.7s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    /* Ocultamos el elemento al inicio para que la animación funcione */
+    opacity: 0; 
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Estilos para el botón con gradiente animado */
+.btn-gradient-animated {
+    background-size: 200% auto; /* Clave para la animación de gradiente */
+    transition: background-position 0.5s ease;
+}
+.btn-gradient-animated:hover {
+    background-position: right center; /* Mueve el gradiente a la derecha en hover */
+}
+
+/* --- HERO BANNER RESPONSIVE --- */
+.hero-banner {
+    /* Imagen de fondo por defecto (para móviles, más vertical) */
+    background-image: url('https://images.pexels.com/photos/2144200/pexels-photo-2144200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+}
+
+/* Media query para pantallas de escritorio (768px o más, el breakpoint 'md' de Tailwind) */
+@media (min-width: 768px) {
+    .hero-banner {
+        /* Imagen de fondo para escritorio (más horizontal) */
+        background-image: url('https://media.gettyimages.com/id/1457682114/es/v%C3%ADdeo/postre-navide%C3%B1o-italiano-yule-log.jpg?s=640x640&k=20&c=nhXl5Pb7E8gPMPS4t2y6VEcy2dsn25BrTR_Drdiz7AA=');
+    }
+}

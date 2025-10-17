@@ -1,0 +1,126 @@
+/* style.productos.css */
+
+/* --- SECCIÓN DE PRODUCTOS --- */
+#productos {
+    /* Un gradiente sutil para separar visualmente la sección */
+    background: linear-gradient(180deg, #f7f3f0 0%, #ffffff 100%);
+}
+
+/* --- TARJETA DE PRODUCTO --- */
+.product-card {
+    /* Efecto "Glassmorphism" para un look futurista */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 300px; /* Ancho fijo para todas las tarjetas */
+    height: 420px; /* Alto fijo para todas las tarjetas */
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Apila los elementos internos verticalmente */
+}
+
+.product-card:hover {
+    /* Animación al pasar el cursor para dar feedback al usuario */
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el contenedor del texto dentro de la tarjeta */
+.product-card .p-6 {
+    flex-grow: 1; /* Hace que este div crezca para llenar el espacio disponible */
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- ESTILOS DEL CARRUSEL (SWIPER) --- */
+.swiper-container {
+    position: relative; /* Asegura que las flechas se posicionen dentro del carrusel */
+    overflow: hidden; /* Evita cualquier desbordamiento horizontal */
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para las flechas de navegación del carrusel */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #e95e7c !important; /* Usamos el color de acento de la marca */
+    transform: scale(0.8);
+    transition: transform 0.2s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1);
+}
+
+/* Estilos para la paginación (los puntos inferiores) */
+.swiper-pagination-bullet-active {
+    background-color: #e95e7c !important;
+}
+
+
+/* --- MODAL DE PRODUCTO (VENTANA EMERGENTE) --- */
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.product-modal.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.product-modal-content {
+    background: white;
+    padding: 2rem; /* Añadido para dar espacio alrededor del contenido */
+    border-radius: 1rem; 
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
+    text-align: center; /* Centra el texto y elementos en línea */
+}
+
+.product-modal.is-visible .product-modal-content {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #f1f1f1;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: #e0e0e0;
+}
